@@ -1,5 +1,7 @@
 "	VIM configuration file
 
+syntax on
+
 set runtimepath^=~/.vim/ftplugin/html/html.vim
 set runtimepath^=~/.vim/ftplugin/py/python.vim
 
