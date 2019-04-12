@@ -1,5 +1,7 @@
 #!/bin/bash
 
+CPUS=$(lscpu | grep -i "^cpu(s):" | awk {'print $2'})
+
 sudo apt update
 sudo apt install -y build-essential cmake pkg-config
 sudo apt install -y libjpeg-dev libtiff5-dev libjasper-dev libpng12-dev
@@ -29,6 +31,6 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
   -D BUILD_EXAMPLES=ON \
   -D BUILD_OPENCV_PYTHON3=YES ..
 
-make -j4
+make -j$CPUS
 sudo make install
 sudo ldconfig
