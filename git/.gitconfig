@@ -1,0 +1,5 @@
+[user]
+  email = najam.r.syed@gmail.com
+  name = Najam Syed
+[alias]
+  glog = log --decorate --graph --all
