@@ -10,7 +10,8 @@ git clone https://github.com/nrsyed/files.git
 echo '[alias]
   glog = log --decorate --graph --all' > .gitconfig
 
-cp -r files/vim/* ./
+cp files/vim/.vimrc ./
+cp -r files/vim/.vim ./
 cp files/tmux/.tmux.conf ./
 
 # Add tmux-resurrect. TODO: update .tmux.conf
