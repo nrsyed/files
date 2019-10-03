@@ -21,4 +21,11 @@ git clone https://github.com/tmux-plugins/tmux-resurrect.git
 cd ~
 echo '
 # tmux-resurrect
-run-shell ~/.tmux/tmux-resurrect/resurrect.tmux' >> .tmux.conf
+run-shell ~/.tmux/tmux-resurrect/resurrect.tmux' >> ~/.tmux.conf
+
+pip install virtualenv virtualenvwrapper
+echo "
+# virtualenv and virtualenvwrapper
+export WORKON_HOME=~/.virtualenv
+source $(find / -name virtualenvwrapper.sh 2>/dev/null)
+alias lsvirtualenv='lsvirtualenv -b'" >> ~/.bashrc
