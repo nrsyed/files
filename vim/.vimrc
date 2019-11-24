@@ -3,6 +3,7 @@
 syntax on
 
 set background=dark
+set hlsearch
 
 set runtimepath^=~/.vim/ftplugin/html/html.vim
 set runtimepath^=~/.vim/ftplugin/py/python.vim
