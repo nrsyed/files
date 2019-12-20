@@ -14,3 +14,6 @@ au Filetype css setl et ts=2 sw=2 sts=2 smartindent
 au Filetype md setl et ts=2 sw=2 sts=2 smartindent
 
 filetype plugin indent on
+
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
