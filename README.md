@@ -1,2 +1,4 @@
 # files
-Assorted configuration files, bash scripts, and other files
+
+Clone with `git clone --recurse-submodules` to ensure all submodules are correctly
+loaded.
