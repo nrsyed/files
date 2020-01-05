@@ -27,9 +27,11 @@ fi
 # Where this script lives.
 SCRIPT_DIR=$(readlink -f $(dirname "$0"))
 
+REPO_DIR=$(readlink -f "$SCRIPT_DIR/..")
+
 git submodule update --init --recursive
 git submodule update --recursive --remote
 
-cd ..
+cd "$REPO_DIR"
 cp vim/.vimrc "$DST_DIR"
 cp -r vim/.vim "$DST_DIR"
