@@ -129,3 +129,7 @@ export NUMBAPRO_CUDA_DRIVER="/usr/local/cuda-9.0/targets/x86_64-linux/lib/stubs/
 
 # Path to Jupyter notebook.
 export PATH="~/.local/bin:$PATH"
+
+export GIT_EDITOR=vim
+
+alias duh='du -h -d 1'
