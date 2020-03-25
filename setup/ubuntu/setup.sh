@@ -30,6 +30,7 @@ cd $HOME
 echo '[alias]
   glog = log --decorate --graph --all' > .gitconfig
 git config --global user.name 'Najam Syed'
+git config --global user.email 'najam.r.syed@gmail.com'
 
 # Symlink .vimrc and .vim directory of plugins.
 ln -s $HOME/files/vim/.vimrc $HOME/.vimrc
@@ -47,10 +48,10 @@ ln -s $HOME/files/redshift/redshift.conf $HOME/.config/redshift.conf
 geoclue_conf=/etc/geoclue/geoclue.conf
 if ! grep -q "\[redshift\]" $geoclue_conf; then
   echo "
-  [redshift]
-  allowed=true
-  system=false
-  users=" | sudo tee -a $geoclue_conf > /dev/null
+[redshift]
+allowed=true
+system=false
+users=" | sudo tee -a $geoclue_conf > /dev/null
 fi
 
 # Enable and start redshift.
@@ -84,13 +85,13 @@ pip install virtualenv virtualenvwrapper
 echo "
 # virtualenv and virtualenvwrapper
 export WORKON_HOME=~/.virtualenv
-export PATH=$PATH:$HOME/.local/bin
-source $(find / -name virtualenvwrapper.sh 2>/dev/null)
+export PATH=\$PATH:$HOME/.local/bin
+source $(find $HOME -name virtualenvwrapper.sh 2>/dev/null)
 alias lsvirtualenv='lsvirtualenv -b'" >> $HOME/.bashrc
 
 source $HOME/.bashrc
 
-PY3_MINOR_VER=$(python3 -c 'import sys; print(sys.version_info[1])')
-mkvirtualenv -p python3 py3$PY3_MINOR_VER
-workon py3$PY3_MINOR_VER
-pip install numpy ipython
+#PY3_MINOR_VER=$(python3 -c 'import sys; print(sys.version_info[1])')
+#mkvirtualenv -p python3 py3$PY3_MINOR_VER
+#workon py3$PY3_MINOR_VER
+#pip install numpy ipython
