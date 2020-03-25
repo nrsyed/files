@@ -1,5 +1,6 @@
 "	VIM configuration file
 
+set belloff=all
 syntax on
 
 set background=dark
