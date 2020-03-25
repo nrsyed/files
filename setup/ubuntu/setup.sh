@@ -2,9 +2,9 @@
 
 # Setup for fresh Ubuntu 18.04 install
 
-BASIC_PKGS="arp-scan bzip2 chromium-browser dropbox evince firefox gzip hplip \
-  hplip-gui htop libreoffice openssh-server ranger redshift tmux texstudio \
-  transmission vim"
+BASIC_PKGS="arp-scan bzip2 chromium-browser dropbox evince firefox geoclue-2.0 \
+  guake gzip hplip hplip-gui htop libreoffice openssh-server ranger redshift \ 
+  tmux texstudio transmission vim"
 DEV_PKGS="build-essential chromium-chromedriver cmake git libopencv-dev octave \
   python-pip python3-pip virtualbox valgrind testdisk"
 EXTRA_PKGS="lm-sensors clamav clamtk flashplugin-installer gnome-tweak-tool \
@@ -43,11 +43,14 @@ ln -s $HOME/files/redshift/redshift.conf $HOME/.config/redshift.conf
 
 # Add redshift to geoclue.conf, as this seems to be an issue with the
 # newer versions of geoclue?
-echo "
-[redshift]
-allowed=true
-system=false
-users=" | sudo tee -a /etc/geoclue/geoclue.conf > /dev/null
+geoclue_conf=/etc/geoclue/geoclue.conf
+if ! grep -q "\[redshift\]" $geoclue_conf; then
+  echo "
+  [redshift]
+  allowed=true
+  system=false
+  users=" | sudo tee -a $geoclue_conf > /dev/null
+fi
 
 # Fun bash aliases.
 echo "
@@ -65,6 +68,9 @@ elif grep -q "# set bell-style none" inputrc; then
 else
   echo -e "\nset bell-style none" | sudo tee -a $inputrc > /dev/null
 fi
+
+# Load guake on startup.
+sudo ln -s /usr/share/applications/guake.desktop /etc/xdg/autostart
 
 # Install virtualenv and virtualenvwrapper. Set up a basic Python3 env.
 pip install virtualenv virtualenvwrapper
