@@ -7,3 +7,6 @@
 [submodule "vim/.vim/pack/nrsyed/start/jedi-vim"]
 	path = vim/.vim/pack/nrsyed/start/jedi-vim
 	url = https://github.com/davidhalter/jedi-vim.git
+[submodule "tmux/.tmux/tmux-resurrect"]
+	path = tmux/.tmux/tmux-resurrect
+	url = https://github.com/tmux-plugins/tmux-resurrect.git
