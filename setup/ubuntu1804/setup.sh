@@ -80,7 +80,25 @@ fi
 # Load guake on startup.
 sudo ln -s /usr/share/applications/guake.desktop /etc/xdg/autostart
 
-# Install virtualenv and virtualenvwrapper. Set up a basic Python3 env.
+# Update nautilus user dirs (lowercase rules!).
+cd $HOME
+rmdir Templates
+rmdir Public
+mv Desktop desktop
+mv Downloads downloads
+mv Documents documents
+mv Music music
+mv Pictures pictures
+mv Videos videos
+
+echo 'XDG_DESKTOP_DIR="$HOME/desktop"
+XDG_DOWNLOAD_DIR="$HOME/downloads"
+XDG_DOCUMENTS_DIR="$HOME/documents"
+XDG_MUSIC_DIR="$HOME/music"
+XDG_PICTURES_DIR="$HOME/pictures"
+XDG_VIDEOS_DIR="$HOME/videos"' > $HOME/.config/user-dirs.dirs
+
+# Install virtualenv and virtualenvwrapper.
 pip install virtualenv virtualenvwrapper
 echo "
 # virtualenv and virtualenvwrapper
