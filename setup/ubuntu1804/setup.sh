@@ -23,7 +23,7 @@ sudo apt-get install -y $BASIC_PKGS $DEV_PKGS $EXTRA_PKGS $MEDIA_PKGS
 cd $HOME
 git clone https://github.com/nrsyed/files.git
 cd files
-git submodule update --init
+git submodule update --init --recursive
 
 # Create .gitconfig.
 cd $HOME
