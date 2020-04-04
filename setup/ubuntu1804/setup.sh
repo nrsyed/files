@@ -82,8 +82,6 @@ sudo ln -s /usr/share/applications/guake.desktop /etc/xdg/autostart
 
 # Update nautilus user dirs (lowercase rules!).
 cd $HOME
-rmdir Templates
-rmdir Public
 mv Desktop desktop
 mv Downloads downloads
 mv Documents documents
@@ -97,6 +95,9 @@ XDG_DOCUMENTS_DIR="$HOME/documents"
 XDG_MUSIC_DIR="$HOME/music"
 XDG_PICTURES_DIR="$HOME/pictures"
 XDG_VIDEOS_DIR="$HOME/videos"' > $HOME/.config/user-dirs.dirs
+
+rmdir Templates
+rmdir Public
 
 # Install virtualenv and virtualenvwrapper.
 pip install virtualenv virtualenvwrapper
