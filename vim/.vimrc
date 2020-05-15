@@ -18,3 +18,13 @@ filetype plugin indent on
 
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+" Map CTRL to easily move between splits and set default splitting options.
+map <C-H> <C-W>h<C-W>_
+map <C-J> <C-W>j<C-W>_
+map <C-K> <C-W>k<C-W>_
+map <C-L> <C-W>l<C-W>_
+
+set splitright
+
+noremap <leader>R :source ~/.vimrc<CR>
