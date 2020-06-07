@@ -28,3 +28,5 @@ map <C-L> <C-W>l<C-W>_
 set splitright
 
 noremap <leader>R :source ~/.vimrc<CR>
+
+nmap <F8> :TagbarToggle<CR>
