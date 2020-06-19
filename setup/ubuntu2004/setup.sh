@@ -6,8 +6,8 @@
 BASIC_PKGS="arp-scan bzip2 chromium-browser evince firefox geoclue-2.0 \
   guake gzip hplip hplip-gui htop libreoffice openssh-server ranger redshift \
   tmux texstudio transmission vim"
-DEV_PKGS="build-essential chromium-chromedriver cmake git libopencv-dev octave \
-  python3-pip virtualbox valgrind testdisk"
+DEV_PKGS="build-essential chromium-chromedriver cmake curl git libopencv-dev \
+  octave python3-pip virtualbox valgrind testdisk"
 EXTRA_PKGS="lm-sensors clamav clamtk flashplugin-installer gnome-tweak-tool \
   pdfshuffler p7zip p7zip-full sqlitebrowser tesseract-ocr wine-stable \
   winetricks"
