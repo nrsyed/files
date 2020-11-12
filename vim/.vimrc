@@ -7,7 +7,7 @@ set background=dark
 set hlsearch
 
 set number
-setl et ts=2 sw=2 sts=2 ai
+set et ts=2 sw=2 sts=2 ai
 set foldmethod=indent
 
 au Filetype cpp setl et ts=4 sw=4 sts=4 autoindent
@@ -28,5 +28,9 @@ map <C-L> <C-W>l<C-W>_
 set splitright
 
 noremap <leader>R :source ~/.vimrc<CR>
+"command! ReloadVimRC :source ~/.vimrc
 
 nmap <F8> :TagbarToggle<CR>
+
+set undofile
+set undodir=~/.vim/undo
