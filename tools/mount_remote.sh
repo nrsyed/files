@@ -1,5 +1,9 @@
 #!/bin/bash
 
+usage() {
+  printf ""
+}
+
 is_available() {
   REMOTE="$1"
   ping -c 1 -t 100 -q $REMOTE > /dev/null 2>&1
@@ -35,7 +39,12 @@ mount_remote() {
       fi
       echo "$msg"
 
-      sshfs -o follow_symlinks,idmap=user $REMOTE:"$REMOTE_DIR" "$MOUNT_POINT"
+      opts="follow_symlinks,idmap=user" 
+      if [ -n "$PORT" ]; then
+        opts="$opts,port=$PORT"
+      fi
+
+      sshfs -o "$opts" $REMOTE:"$REMOTE_DIR" "$MOUNT_POINT"
     else
       echo "$REMOTE cannot be reached"
     fi
@@ -70,6 +79,10 @@ while (( "$#" )); do
       ;;
     -m|--mount-dir)
       MOUNT_DIR="$2"
+      shift 2
+      ;;
+    -p|--port)
+      PORT="$2"
       shift 2
       ;;
     -r|--remote-dir)
