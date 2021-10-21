@@ -1,7 +1,28 @@
 #!/bin/bash
 
 usage() {
-  printf ""
+  NF='\e[0m'  # no formatting
+  BOLD='\e[1m'
+  SELF="${0##*/}"
+
+  echo -e "${BOLD}USAGE${NF}
+  $SELF <remote> [-f|--force] [-m|--mount-dir <dir>] [-p|--port <port>]
+               [-r|--remote-dir <dir>] [-u|--unmount]
+  "
+
+  echo -e "${BOLD}DESCRIPTION${NF}
+  Mount (or unmount) a remote machine to a local directory using sshfs.
+  "
+
+  echo -e "${BOLD}ARGUMENTS${NF}
+  remote
+    The hostname/address of the remote machine.
+  "
+  
+  echo -e "${BOLD}OPTIONS${NF}
+  "
+
+  exit 0
 }
 
 is_available() {
@@ -96,7 +117,9 @@ while (( "$#" )); do
   esac
 done
 
-if [ $UNMOUNT ]; then
+if [ -z "$REMOTE" ]; then
+  usage
+elif [ $UNMOUNT ]; then
   unmount_remote "$REMOTE"
 else
   mount_remote "$REMOTE"
