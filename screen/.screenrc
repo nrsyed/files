@@ -1,0 +1,6 @@
+# Save window layout between detach/reattach
+layout save default
+
+# Allow mouse click to change focus.
+mousetrack on
+defmousetrack on
